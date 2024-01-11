@@ -7,7 +7,6 @@ namespace Surge.Business.Game {
     public class BulletRepository {
 
         Dictionary<int, BulletEntity> all;
-        BulletEntity selectedBullet;
 
         BulletEntity[] temp;
 
@@ -24,14 +23,6 @@ namespace Surge.Business.Game {
             return all.TryGetValue(entityID, out bullet);
         }
 
-        public void SelectedBullet_Set(BulletEntity bullet) {
-            selectedBullet = bullet;
-        }
-
-        public BulletEntity SelectedBullet_Get() {
-            return selectedBullet;
-        }
-
         public bool Bullet_TryGetAlive(int entityID, out BulletEntity bullet) {
             bool has = all.TryGetValue(entityID, out bullet);
             return has && !bullet.isDead;
@@ -39,6 +30,10 @@ namespace Surge.Business.Game {
 
         public void Bullet_Remove(BulletEntity bullet) {
             all.Remove(bullet.entityID);
+        }
+
+        public void Clear() {
+            all.Clear();
         }
 
     }

@@ -9,5 +9,16 @@ namespace Surge {
 
     }
 
+    public static class AllyStatusExtension {
+        public static AllyStatus GetOpposite(this AllyStatus status) {
+            if (status == AllyStatus.Justice) {
+                return AllyStatus.Evil;
+            } else if (status == AllyStatus.Evil) {
+                return AllyStatus.Justice;
+            } else {
+                return AllyStatus.None;
+            }
+        }
+    }
 
 }

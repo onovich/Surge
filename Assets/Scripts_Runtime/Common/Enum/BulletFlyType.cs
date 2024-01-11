@@ -3,9 +3,9 @@ namespace Surge {
     public enum BulletFlyType {
 
         None = 0,
-        Straight = 1,
-        Parabola = 2,
-        Homing = 3,
+        Line = 1,
+        ToTarget = 2,
+        Track = 3,
 
     }
 

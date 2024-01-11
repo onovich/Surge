@@ -16,6 +16,71 @@ namespace Surge {
 
         public bool isDead;
 
+        public bool hasTarget;
+        public EntityType casterEntityType;
+        public int casterEntityID;
+        public EntityType targetEntityType;
+        public int targetEntityID;
+
+        public float flySpeed;
+        public float radius;
+        public int atk;
+        public int crossTimes;
+        public float lifeSec;
+        public float searchRangeIfTrack;
+        public float trackFlyPreSec;
+
+        public Vector2 fromPos;
+        public Vector2 pos;
+        public Vector2 targetPos;
+        public Vector2 dir;
+
+        public EffectorModel hitEffector;
+
+        [SerializeField] SpriteRenderer sr;
+
+        public void Ctor() {
+            gameObject.SetActive(false);
+        }
+
+        public void Reuse() {
+            gameObject.SetActive(true);
+        }
+
+        public void Release() {
+            gameObject.SetActive(false);
+        }
+
+        public void TearDown() {
+            Release();
+            Destroy(gameObject);
+        }
+
+        public void Pos_UpdatePos() {
+            transform.position = new Vector2(pos.x, pos.y);
+            transform.right = dir;
+        }
+
+        public Vector2Int Pos_GetPosInt() {
+            return new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y));
+        }
+
+        public void Pos_UpdateFace() {
+            transform.right = dir;
+        }
+
+        public void Show() {
+            gameObject.SetActive(true);
+        }
+
+        public void Hide() {
+            gameObject.SetActive(false);
+        }
+
+        public void SR_SetSprite(Sprite sprite) {
+            sr.sprite = sprite;
+        }
+
     }
 
 }

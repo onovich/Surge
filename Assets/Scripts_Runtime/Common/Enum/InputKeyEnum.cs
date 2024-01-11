@@ -20,6 +20,7 @@ namespace Surge {
         Skill1 = 402,
         Skill2 = 403,
         Skill3 = 404,
+        Skill4 = 405,
 
         Camera_Move = 501,
 
