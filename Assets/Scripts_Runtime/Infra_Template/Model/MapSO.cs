@@ -1,7 +1,7 @@
 using UnityEngine;
 
-namespace Hermit {
-    [CreateAssetMenu(fileName = "SO_Map", menuName = "Hermit/MapSO")]
+namespace Surge {
+    [CreateAssetMenu(fileName = "SO_Map", menuName = "Surge/MapSO")]
     public class MapSO : ScriptableObject {
         public MapSpawnTM tm;
     }

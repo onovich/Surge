@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Hermit.UI;
+using Surge.UI;
 using UnityEngine;
 
-namespace Hermit {
+namespace Surge {
 
     public class UIAppContext {
 
@@ -51,12 +51,13 @@ namespace Hermit {
             openedUniqueDict.Remove(name);
         }
 
-        public bool UniquePanel_TryGet(string name, out MonoBehaviour panel) {
-            return openedUniqueDict.TryGetValue(name, out panel);
-        }
-
-        public T UniquePanel_Get<T>(string name) where T : MonoBehaviour {
-            return (T)openedUniqueDict[name];
+        public T UniquePanel_Get<T>() where T : MonoBehaviour {
+            var name = typeof(T).Name;
+            var panel = UniquePanel_Get<T>();
+            if (panel == null) {
+                return null;
+            }
+            return panel as T;
         }
 
     }

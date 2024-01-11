@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Hermit {
+namespace Surge {
 
     public class MapSpawnTM {
 

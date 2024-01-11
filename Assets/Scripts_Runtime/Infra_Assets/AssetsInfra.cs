@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.AddressableAssets;
 
-namespace Hermit {
+namespace Surge {
 
     public class AssetsInfra {
 

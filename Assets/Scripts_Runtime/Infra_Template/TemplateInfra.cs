@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Hermit {
+namespace Surge {
 
     public static class TemplateInfra {
 

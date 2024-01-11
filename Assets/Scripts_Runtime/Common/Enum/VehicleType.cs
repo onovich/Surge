@@ -1,4 +1,4 @@
-namespace Hermit {
+namespace Surge {
     public enum VehicleType {
         None = 0,
         Car = 1,

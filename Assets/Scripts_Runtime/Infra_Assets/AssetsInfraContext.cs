@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace Hermit {
+namespace Surge {
 
     public class AssetsInfraContext {
 
@@ -20,7 +20,7 @@ namespace Hermit {
         GameObject Entity_Get(string key) {
             var has = entityAssets.TryGetValue(key, out var asset);
             if (!has) {
-                HLog.LogError($"Entity_Get: {key} not found");
+                SLog.LogError($"Entity_Get: {key} not found");
             }
             return asset;
         }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Hermit.Business.Game {
+namespace Surge.Business.Game {
 
     public static class GameBusiness {
 
@@ -43,7 +43,7 @@ namespace Hermit.Business.Game {
         public static void ExitApplicaiton(GameBusinessContext ctx) {
             ExitGame(ctx);
             Application.Quit();
-            HLog.Log("Application.Quit()");
+            SLog.Log("Application.Quit()");
         }
 
         static void RestartGame(GameBusinessContext ctx) {

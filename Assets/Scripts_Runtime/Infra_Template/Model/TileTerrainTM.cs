@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Hermit {
+namespace Surge {
 
     [Serializable]
     public class TileTerrainTM {

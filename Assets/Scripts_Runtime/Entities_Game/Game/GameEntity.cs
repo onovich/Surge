@@ -1,4 +1,4 @@
-namespace Hermit {
+namespace Surge {
 
     public class GameEntity {
 

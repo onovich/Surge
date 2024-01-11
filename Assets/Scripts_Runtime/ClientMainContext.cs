@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Hermit.Business.Game;
-using Hermit.Login;
-using Hermit.UI;
+using Surge.Business.Game;
+using Surge.Login;
+using Surge.UI;
 using UnityEngine;
 
-namespace Hermit {
+namespace Surge {
 
     public class ClientMainContext {
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Hermit.Modifier {
+namespace Surge.Modifier {
 
     [ExecuteInEditMode]
     public class RoleEditorEntity : MonoBehaviour {

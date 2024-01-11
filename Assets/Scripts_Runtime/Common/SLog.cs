@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Runtime.CompilerServices;
 
-namespace Hermit {
+namespace Surge {
 
-    public static class HLog {
+    public static class SLog {
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Log(object message) {

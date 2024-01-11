@@ -2,11 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Hermit.Business.Game;
-using Hermit.Login;
+using Surge.Business.Game;
+using Surge.Login;
 using UnityEngine;
 
-namespace Hermit {
+namespace Surge {
 
     public class ClientMain : MonoBehaviour {
 
@@ -45,8 +45,8 @@ namespace Hermit {
             TemplateInfraContext templateInfraContext = ctx.templateInfraContext;
 
             await UIApp.LoadAssets(uiAppContext);
-            await AssetsInfra.LoadAssets(assetsInfraContext);
-            await TemplateInfra.LoadAssets(templateInfraContext);
+            // await AssetsInfra.LoadAssets(assetsInfraContext);
+            // await TemplateInfra.LoadAssets(templateInfraContext);
 
         }
 

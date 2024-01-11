@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Surge.UI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Hermit {
+namespace Surge {
 
     public static class UIApp {
 
@@ -23,13 +24,16 @@ namespace Hermit {
         }
 
         public static void Login_Open(UIAppContext ctx) {
-            HLog.Log("Login_Open");
+            PanelLoginDomain.Open(ctx);
         }
 
         public static void Login_TryClose(UIAppContext ctx) {
-            HLog.Log("Login_TryClose");
+            var panel = ctx.UniquePanel_Get<Panel_Login>();
+            if (panel == null) {
+                return;
+            }
+            PanelLoginDomain.Close(ctx);
         }
-
 
     }
 

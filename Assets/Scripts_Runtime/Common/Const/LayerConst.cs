@@ -1,4 +1,4 @@
-namespace Hermit {
+namespace Surge {
 
     public static class LayerConst {
 

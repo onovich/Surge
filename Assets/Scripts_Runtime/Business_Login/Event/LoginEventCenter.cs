@@ -1,6 +1,6 @@
 using System;
 
-namespace Hermit.Login {
+namespace Surge.Login {
 
     public class LoginEventCenter {
 

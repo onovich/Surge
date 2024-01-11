@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Hermit.Login {
+namespace Surge.Login {
 
     public static class LoginBusiness {
 
@@ -20,7 +20,7 @@ namespace Hermit.Login {
         public static void ExitApplication(LoginBusinessContext ctx) {
             Exit(ctx);
             Application.Quit();
-            HLog.Log("Application.Quit()");
+            SLog.Log("Application.Quit()");
         }
 
         public static void OnLoginFinish(LoginBusinessContext ctx) {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Hermit {
+namespace Surge {
 
     public struct InputKeybindingComponent {
 

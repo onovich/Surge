@@ -1,4 +1,4 @@
-namespace Hermit.Login {
+namespace Surge.Login {
 
     public class LoginBusinessContext {
 
