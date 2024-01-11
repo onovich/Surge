@@ -53,8 +53,8 @@ namespace Surge {
 
         public T UniquePanel_Get<T>() where T : MonoBehaviour {
             var name = typeof(T).Name;
-            var panel = UniquePanel_Get<T>();
-            if (panel == null) {
+            bool has = openedUniqueDict.TryGetValue(name, out var panel);
+            if (!has) {
                 return null;
             }
             return panel as T;
