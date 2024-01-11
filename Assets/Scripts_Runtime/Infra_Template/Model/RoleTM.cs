@@ -7,8 +7,7 @@ namespace Surge {
     public class RoleTM {
 
         public int typeID;
-        public Mesh mesh;
-        public Material[] materials;
+        public Sprite spr;
 
     }
 

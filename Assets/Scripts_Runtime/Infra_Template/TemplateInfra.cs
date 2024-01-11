@@ -14,11 +14,6 @@ namespace Surge {
             foreach (var role in roles) {
                 ctx.Role_Add(role.typeID, role);
             }
-
-            var tileTerrains = await Addressables.LoadAssetsAsync<TileTerrainTM>("TM_TileTerrain", null).Task;
-            foreach (var tileTerrain in tileTerrains) {
-                ctx.TileTerrain_Add(tileTerrain.typeID, tileTerrain);
-            }
         }
 
     }
