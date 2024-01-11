@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Surge.Business.Game;
 using Surge.Login;
+using Surge.UI;
 using UnityEngine;
 
 namespace Surge {
@@ -65,10 +66,19 @@ namespace Surge {
         void Binding() {
             LoginBusinessContext loginBusinessContext = ctx.BakeLoginBusiness();
 
-            // Login Business
-            LoginEventCenter loginEvt = loginBusinessContext.evt;
-            loginEvt.Login_OnLoginFinishHandle += () => {
-                Debug.Log("Login Success");
+            // UI: Login
+            var uiAppContext = ctx.BakeUIApp();
+            UIEventCenter uiEventCenter = uiAppContext.evt;
+            uiEventCenter.Login_OnStartGameClickHandle += () => {
+                LoginBusinessContext loginBusinessContext = ctx.BakeLoginBusiness();
+                GameBusinessContext gameBusinessContext = ctx.BakeGameBusiness();
+                LoginBusiness.Exit(loginBusinessContext);
+                GameBusiness.StartGame(gameBusinessContext, 1);
+            };
+
+            uiEventCenter.Login_OnExitGameClickHandle += () => {
+                LoginBusinessContext loginBusinessContext = ctx.BakeLoginBusiness();
+                LoginBusiness.ExitApplication(loginBusinessContext);
             };
 
         }
