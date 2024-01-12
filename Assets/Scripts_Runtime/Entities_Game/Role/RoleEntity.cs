@@ -16,6 +16,7 @@ namespace Surge {
         public RoleType roleType;
         public AIType aiType;
         public float rebornDuration;
+        Vector2 faceDir;
 
         // State
         public bool isDead;
@@ -99,6 +100,14 @@ namespace Surge {
             return moveCom.lastPosInt;
         }
 
+        public Vector2 Pos_GetFaceDir() {
+            if (faceDir == Vector2.zero) {
+                faceDir = Vector2.up;
+            }
+            return faceDir;
+        }
+
+
         // Input
         public void Input_SetMoveAxis(Vector2 moveAxis) {
             inputCom.moveAxis = moveAxis;
@@ -166,8 +175,25 @@ namespace Surge {
             return skillCom.FindAutoCastNoCD_OnlyOneCycle();
         }
 
+        public SkillSubEntity Skill_Find(int typeID) {
+            return skillCom.Find(typeID);
+        }
+
+        public int Skill_TakeAll(out SkillSubEntity[] skills) {
+            return skillCom.TakeAll(out skills);
+        }
+
         public void Skill_Foreach(Action<SkillSubEntity> action) {
             skillCom.Foreach(action);
+        }
+
+        public SkillSubEntity Skill_GetAttackSkill() {
+            return skillCom.GetAttackSkill();
+        }
+
+
+        public SkillSubEntity Skill_GetByKey(InputKeyEnum key) {
+            return skillCom.GetByKey(key);
         }
 
         public void Skill_Add(SkillSubEntity skill) {

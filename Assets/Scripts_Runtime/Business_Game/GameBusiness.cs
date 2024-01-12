@@ -167,7 +167,7 @@ namespace Surge.Business.Game {
 
             // - Bullet
             ctx.Bullet_ForEach(bullet => {
-                if (bullet.isDead) {
+                if (bullet.IsDead) {
                     return;
                 }
                 GameBulletFSMController.FixedTick(ctx, bullet, dt);
@@ -229,6 +229,10 @@ namespace Surge.Business.Game {
             // Input & UI
             // TODO
 
+            if (ctx.inputEntity.skillKeyDown != InputKeyEnum.None) {
+                GameUIDomain.SkillShortcut_ChooseSkillByKey(ctx, player, ctx.inputEntity.skillKeyDown);
+            }
+
             // Role: All
             int roleLen = ctx.Role_TakeAll(out var roles);
             for (int i = 0; i < roleLen; i += 1) {
@@ -247,7 +251,7 @@ namespace Surge.Business.Game {
             int bulletLen = ctx.Bullet_TakeAll(out var bullets);
             for (int i = 0; i < bulletLen; i += 1) {
                 var bullet = bullets[i];
-                if (bullet.isDead) {
+                if (bullet.IsDead) {
                     GameBulletDomain.Unspawn(ctx, bullet);
                 }
             }

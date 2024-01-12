@@ -17,12 +17,12 @@ MonoBehaviour:
     typeName: 
     desc: 
     flyType: 1
-    searchRangeIfTrack: 0
-    flySpeed: 0
-    radius: 0
-    atk: 0
-    crossTimes: 0
-    lifeSec: 0
+    searchRangeIfTrack: 1
+    flySpeed: 4
+    radius: 1
+    atk: 1
+    crossTimes: 1
+    lifeSec: 5
     spr: {fileID: 21300000, guid: 81981d37d9cde3b4caeb9e074f515908, type: 3}
     hitEffector:
       hitVFXPrefab: {fileID: 0}

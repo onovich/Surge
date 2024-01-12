@@ -21,18 +21,5 @@ MonoBehaviour:
     def: 1
     attackRange: 5
     pickRange: 2
-    skillTMs:
-    - typeID: 1001
-      typeName: "\u8C46\u5B50\u5F39"
-      desc: 
-      cdMax: 2
-      isAutoCast: 1
-      preCastSec: 0
-      castingMaintainSec: 1
-      castingIntervalSec: 0.2
-      endCastSec: 0
-      hasCastBullet: 1
-      castBulletTypeID: 1001
-      hasDestroySelf: 0
-      icon: {fileID: 0}
+    skillTypeIds: e9030000
     spr: {fileID: 21300000, guid: adcf60026b6aa744bb7f32e81886f832, type: 3}

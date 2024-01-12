@@ -85,6 +85,26 @@ namespace Surge.Business.Game {
 
         }
 
+        public static void Skill_TryCastByPos(GameBusinessContext ctx, RoleEntity caster, SkillSubEntity skill, Vector2 inputTargetPos, Vector2Int inputPosInt) {
+
+            SLog.Log($"Skill_TryCastByPos: {caster.entityID} {skill.typeID}");
+
+            bool hasTarget;
+            EntityType targetType = EntityType.None;
+            int targetID = 0;
+            Vector2 targetPos;
+
+            hasTarget = false;
+            targetPos = Vector2.zero;
+
+            Skill_PreCast(ctx, caster, skill, hasTarget, targetType, targetID, targetPos, targetPos - caster.Pos_GetPos());
+
+        }
+
+        public static void Skill_TryCastByID(GameBusinessContext ctx, RoleEntity caster, SkillSubEntity skill, EntityType targetType, int targetID, Vector2 targetPos) {
+            Skill_PreCast(ctx, caster, skill, true, targetType, targetID, targetPos, targetPos - caster.Pos_GetPos());
+        }
+
         public static void Skill_PreCast(GameBusinessContext ctx, RoleEntity role, SkillSubEntity skill, bool hasTarget, EntityType targetType, int targetID, Vector2 targetPos, Vector2 targetDir) {
             bool allowCast = true;
             allowCast = role.FSM_GetStatus() == RoleFSMStatus.Normal;
@@ -101,16 +121,15 @@ namespace Surge.Business.Game {
 
         public static void Skill_Cast(GameBusinessContext ctx, RoleEntity role, SkillSubEntity skill) {
 
+            SLog.Log($"Skill_Cast: {role.entityID} {skill.typeID}");
             Vector2 targetPos;
             Vector2 flyDir;
             if (role.hasTarget) {
                 targetPos = role.targetPos;
                 flyDir = targetPos - role.Pos_GetPos();
             } else {
-                targetPos = role.targetPos;
-                // flyDir = role.Pos_GetFaceDir();
-                // TODO
-                flyDir = role.roleType == RoleType.Player ? Vector2.up : Vector2.down;
+                targetPos = role.targetPos + role.Pos_GetFaceDir();
+                flyDir = role.Pos_GetFaceDir();
             }
 
             if (skill.hasCastBullet) {

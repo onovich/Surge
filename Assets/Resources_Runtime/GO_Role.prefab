@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129732432067797235}
   - component: {fileID: 2248737603780334738}
+  - component: {fileID: 9188128350802260728}
   m_Layer: 0
   m_Name: GO_Role
   m_TagString: Untagged
@@ -87,13 +88,40 @@ MonoBehaviour:
   muzzles:
   - {fileID: 3858356087578669964}
   - {fileID: 3880120461932151286}
-  rb: {fileID: 3419143258306138715}
+  rb: {fileID: 9188128350802260728}
   spr: {fileID: 5855816226838373061}
   hasTarget: 0
   targetEntityType: 0
   targetEntityID: 0
   targetPos: {x: 0, y: 0}
   targetDir: {x: 0, y: 0}
+--- !u!50 &9188128350802260728
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2865250968976766997}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4973196699605662863
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +163,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2276112511044050773}
   - component: {fileID: 5855816226838373061}
-  - component: {fileID: 3419143258306138715}
   m_Layer: 0
   m_Name: mesh
   m_TagString: Untagged
@@ -212,30 +239,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &3419143258306138715
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7487747834146137155}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

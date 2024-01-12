@@ -59,13 +59,13 @@ namespace Surge.Business.Game {
             role.FSM_EnterNormal();
 
             // Attr
-
             role.Attr_InitAll(roleTM.moveSpeed, roleTM.hpMax, roleTM.atk, roleTM.def, roleTM.attackRange, roleTM.pickRange);
+
             // Skill
-            var skillTMs = roleTM.skillTMs;
-            if (skillTMs != null) {
-                foreach (var skillTM in skillTMs) {
-                    var skillSub = GameFactory.Skill_Spawn(templateInfraContext, idRecordService, poolService, skillTM.typeID);
+            var skillTypeIds = roleTM.skillTypeIds;
+            if (skillTypeIds != null) {
+                foreach (var skillTypeId in skillTypeIds) {
+                    var skillSub = GameFactory.Skill_Spawn(templateInfraContext, idRecordService, poolService, skillTypeId);
                     role.Skill_Add(skillSub);
                 }
             }
@@ -167,8 +167,9 @@ namespace Surge.Business.Game {
             bullet.hitEffector.FromTM(tm.hitEffector);
 
             bullet.Pos_UpdatePos();
-            // bullet.Pos_UpdateFace();
             bullet.SR_SetSprite(tm.spr);
+
+            SLog.Log($"Bullet_Spawn: entityID = {bullet.entityID}; typeID = {bullet.typeID}; flyType = {bullet.flyType}; pos = {bullet.pos}; dir = {bullet.dir}");
 
             return bullet;
         }

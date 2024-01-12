@@ -14,7 +14,7 @@ namespace Surge {
         public AllyStatus allyStatus;
         public BulletFlyType flyType;
 
-        public bool isDead;
+        public bool IsDead => crossTimes <= 0 || lifeSec <= 0;
 
         public bool hasTarget;
         public EntityType casterEntityType;
@@ -58,15 +58,11 @@ namespace Surge {
 
         public void Pos_UpdatePos() {
             transform.position = new Vector2(pos.x, pos.y);
-            transform.right = dir;
+            transform.up = dir;
         }
 
         public Vector2Int Pos_GetPosInt() {
             return new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y));
-        }
-
-        public void Pos_UpdateFace() {
-            transform.right = dir;
         }
 
         public void Show() {

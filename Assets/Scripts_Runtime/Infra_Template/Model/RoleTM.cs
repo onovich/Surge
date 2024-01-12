@@ -13,11 +13,11 @@ namespace Surge {
         public int hpMax;
         public int atk;
         public int def;
-        
+
         public int attackRange;
         public int pickRange;
 
-        public SkillTM[] skillTMs;
+        public int[] skillTypeIds;
 
         public Sprite spr;
 

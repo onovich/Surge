@@ -9,7 +9,7 @@ namespace Surge.Business.Game {
             RoleFSMStatus status = role.FSM_GetStatus();
             if (status == RoleFSMStatus.Normal) {
                 FixedTickFSM_Normal(ctx, role, fixdt);
-            } else if (status == RoleFSMStatus.Normal) {
+            } else if (status == RoleFSMStatus.Casting) {
                 FixedTickFSM_Casting(ctx, role, fixdt);
             } else if (status == RoleFSMStatus.FakeDead) {
                 FixedTickFSM_FakeDead(ctx, role, fixdt);
