@@ -49,7 +49,6 @@ namespace Surge {
         // Ctor
         public void Ctor() {
             gameObject.SetActive(false);
-            rb = GetComponentInChildren<Rigidbody2D>();
             fsmCom = new RoleFSMComponent();
             inputCom = new RoleInputComponent();
             attrCom = new RoleAttrComponent();
@@ -84,9 +83,29 @@ namespace Surge {
             transform.position = pos;
         }
 
+        public Vector2Int Pos_GetPosInt() {
+            return new Vector2Int((int)transform.position.x, (int)transform.position.y);
+        }
+
+        public bool Pos_IsDifferentFromLast() {
+            return Pos_GetPosInt() != Pos_GetLastPosInt();
+        }
+
+        public void Pos_RecordLastPosInt() {
+            moveCom.lastPosInt = Pos_GetPosInt();
+        }
+
+        public Vector2Int Pos_GetLastPosInt() {
+            return moveCom.lastPosInt;
+        }
+
         // Input
         public void Input_SetMoveAxis(Vector2 moveAxis) {
             inputCom.moveAxis = moveAxis;
+        }
+
+        public void Input_SetSkillKeyDown(InputKeyEnum skillKeyDown) {
+            inputCom.skillKeyDown = skillKeyDown;
         }
 
         // Attr
@@ -187,6 +206,10 @@ namespace Surge {
 
         public void FSM_EnterNormal() {
             fsmCom.EnterNormal();
+        }
+
+        public void FSM_EnterFakeDead(float duration) {
+            fsmCom.EnterFakeDead(duration);
         }
 
         // Coll

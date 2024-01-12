@@ -6,6 +6,12 @@ namespace Surge {
 
     public class PlayerEntity {
 
+        public int ownerRoleEntityID;
+        public float gameTime;
+
+        public PlayerEntity() {
+        }
+        
     }
 
 }

@@ -5,6 +5,56 @@ using UnityEngine;
 namespace Surge.Business.Game {
     public static class GameRoleDomain {
 
+        // Role
+        public static RoleEntity Spawn(GameBusinessContext ctx,
+                                     int typeID,
+                                     RoleType roleType,
+                                     AllyStatus allyStatus,
+                                     AIType aiType,
+                                     Vector2 pos) {
+            var role = GameFactory.Role_Spawn(ctx.templateInfraContext,
+                                              ctx.idRecordService,
+                                              ctx.poolService,
+                                              typeID,
+                                              roleType,
+                                              allyStatus,
+                                              aiType,
+                                              pos);
+            Role_SpawnFinished(ctx, role);
+            return role;
+        }
+
+        public static void Role_FakeDead(GameBusinessContext ctx, RoleEntity role) {
+
+            int buffLen = role.Buff_TakeAll(out var buffs);
+            for (int i = 0; i < buffLen; i += 1) {
+                var buff = buffs[i];
+                buff.Release();
+                ctx.poolService.Buff_Return(buff);
+                role.Buff_Remove(buff);
+            }
+
+            role.FSM_EnterFakeDead(1f);
+
+        }
+
+        static void Role_SpawnFinished(GameBusinessContext ctx, RoleEntity role) {
+            Role_RecordLastPos(ctx, role);
+            ctx.Role_Add(role);
+        }
+
+        public static void Role_RecordLastPos(GameBusinessContext ctx, RoleEntity role) {
+            role.Pos_RecordLastPosInt();
+        }
+
+        public static void Role_UpdatePosDict(GameBusinessContext ctx, RoleEntity role) {
+            if (!role.Pos_IsDifferentFromLast()) {
+                return;
+            }
+            ctx.Role_AddOrUpdatePosDict(role);
+            Role_RecordLastPos(ctx, role);
+        }
+
         // Skill
         public static void Skill_CDTick(GameBusinessContext ctx, RoleEntity role, float dt) {
             role.Skill_Foreach(skill => {

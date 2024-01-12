@@ -21,8 +21,8 @@ namespace Surge {
         }
 
         // Role
-        public void Role_Add(int typeID, RoleTM role) {
-            roles.Add(typeID, role);
+        public void Role_Add(RoleTM role) {
+            roles.Add(role.typeID, role);
         }
 
         public bool Role_TryGet(int typeID, out RoleTM role) {

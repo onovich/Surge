@@ -1,18 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+namespace Surge.Business.Game {
 
-public class GameStageDomain : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public static class GameStageDomain {
+
+        public static void FocusBoss(GameBusinessContext ctx, RoleEntity boss) {
+            var game = ctx.gameEntity;
+            game.Stage_EnterFocusBoss(boss.Pos_GetPos());
+        }
+
+        public static void ApplyResult(GameBusinessContext ctx) {
+
+            var game = ctx.gameEntity;
+
+            // TODO
+            // 失败: 玩家生命用尽
+            // 胜利: Boss 全灭
+
+        }
+
+        static void UI_ShowResultWin(GameBusinessContext ctx) {
+        }
+
+        static void UI_ShowResultLose(GameBusinessContext ctx) {
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

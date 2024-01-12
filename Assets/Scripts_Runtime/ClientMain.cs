@@ -46,8 +46,8 @@ namespace Surge {
             TemplateInfraContext templateInfraContext = ctx.templateInfraContext;
 
             await UIApp.LoadAssets(uiAppContext);
-            // await AssetsInfra.LoadAssets(assetsInfraContext);
-            // await TemplateInfra.LoadAssets(templateInfraContext);
+            await AssetsInfra.LoadAssets(assetsInfraContext);
+            await TemplateInfra.LoadAssets(templateInfraContext);
 
         }
 

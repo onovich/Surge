@@ -32,7 +32,6 @@ namespace Surge.Business.Game {
         public GameBusinessContext() {
             gameEntity = new GameEntity();
             inputEntity = new InputEntity();
-            playerEntity = new PlayerEntity();
 
             roleRepository = new RoleRepository();
             bulletRepository = new BulletRepository();
@@ -85,6 +84,22 @@ namespace Surge.Business.Game {
             roleRepository.Role_ForEach(action);
         }
 
+        public int Role_TakeAll(out RoleEntity[] temp) {
+            return roleRepository.TakeAll(out temp);
+        }
+
+        public void Role_AddOrUpdatePosDict(RoleEntity role) {
+            roleRepository.UpdatePosDict(role);
+        }
+
+        public bool Role_IsInRange(int entityID, Vector2 pos, float range) {
+            return roleRepository.IsInRange(entityID, pos, range);
+        }
+
+        public void Role_Clear() {
+            roleRepository.Clear();
+        }
+
         // Bullet
         public void Bullet_Add(BulletEntity bulletEntity) {
             bulletRepository.Bullet_Add(bulletEntity);
@@ -94,8 +109,12 @@ namespace Surge.Business.Game {
             bulletRepository.Bullet_Remove(bulletEntity);
         }
 
-        public bool Bullet_TryGet(int entityID, out BulletEntity bulletEntity) {
-            return bulletRepository.Bullet_TryGet(entityID, out bulletEntity);
+        public void Bullet_ForEach(Action<BulletEntity> action) {
+            bulletRepository.Bullet_ForEach(action);
+        }
+
+        public int Bullet_TakeAll(out BulletEntity[] bullets) {
+            return bulletRepository.Bullet_TakeAll(out bullets);
         }
 
         // Damage Arbit

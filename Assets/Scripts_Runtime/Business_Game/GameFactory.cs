@@ -6,6 +6,14 @@ namespace Surge.Business.Game {
 
     public class GameFactory {
 
+        // Player
+        public static PlayerEntity Player_Spawn(TemplateInfraContext templateInfraContext, int gameTypeID) {
+
+            PlayerEntity player = new PlayerEntity();
+            return player;
+
+        }
+
         // Role
         public static RoleEntity Role_Create(AssetsInfraContext assetsInfraContext) {
             var prefab = assetsInfraContext.Entity_GetRole();
@@ -21,9 +29,7 @@ namespace Surge.Business.Game {
                                             RoleType roleType,
                                             AllyStatus allyStatus,
                                             AIType aiType,
-                                            Vector2 pos,
-                                            bool isBranch,
-                                            int belongCaveEntityID) {
+                                            Vector2 pos) {
 
             bool has = templateInfraContext.Role_TryGet(typeID, out var roleTM);
             if (!has) {

@@ -7,6 +7,7 @@ namespace Surge {
     public class InputEntity {
 
         public Vector2 moveAxis;
+        public InputKeyEnum skillKeyDown;
 
         InputKeybindingComponent keybindingCom;
 
@@ -29,13 +30,22 @@ namespace Surge {
                 moveAxis.y = -1;
             }
 
-            // Rotate Axis
-
-            // Jump
-
-            // Attack
-
             // Skill
+            InputKeyEnum skillKeyDown;
+            if (keybindingCom.IsKeyDown(InputKeyEnum.Skill1)) {
+                skillKeyDown = InputKeyEnum.Skill1;
+            } else if (keybindingCom.IsKeyDown(InputKeyEnum.Skill2)) {
+                skillKeyDown = InputKeyEnum.Skill2;
+            } else if (keybindingCom.IsKeyDown(InputKeyEnum.Skill3)) {
+                skillKeyDown = InputKeyEnum.Skill3;
+            } else if (keybindingCom.IsKeyDown(InputKeyEnum.Skill4)) {
+                skillKeyDown = InputKeyEnum.Skill4;
+            } else if (keybindingCom.IsKeyDown(InputKeyEnum.Attack)) {
+                skillKeyDown = InputKeyEnum.Attack;
+            } else {
+                skillKeyDown = InputKeyEnum.None;
+            }
+            this.skillKeyDown = skillKeyDown;
 
             // Camera Move
 

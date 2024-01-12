@@ -107,7 +107,7 @@ MonoBehaviour:
     - SFX
     - TM_Role
     - TM_Map
-    - TM_Projectile
+    - TM_Bullet
     - TM_Skill
     - TM_Buff
     - TM_Prop

@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameBulletFSMController : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+namespace Surge.Business.Game {
+
+    public class GameBulletFSMController : MonoBehaviour {
+        public static void FixedTick(GameBusinessContext ctx, BulletEntity bullet, float fixdt) {
+            GameBulletDomain.BulletFly(ctx, bullet, fixdt);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

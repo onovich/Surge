@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,13 +20,20 @@ namespace Surge.Business.Game {
             all.Add(bullet.entityID, bullet);
         }
 
-        public bool Bullet_TryGet(int entityID, out BulletEntity bullet) {
-            return all.TryGetValue(entityID, out bullet);
+        public void Bullet_ForEach(Action<BulletEntity> action) {
+            foreach (var bullet in all.Values) {
+                action(bullet);
+            }
         }
 
-        public bool Bullet_TryGetAlive(int entityID, out BulletEntity bullet) {
-            bool has = all.TryGetValue(entityID, out bullet);
-            return has && !bullet.isDead;
+        public int Bullet_TakeAll(out BulletEntity[] bullets) {
+            int count = all.Count;
+            if (count > temp.Length) {
+                temp = new BulletEntity[(int)(count * 1.5f)];
+            }
+            all.Values.CopyTo(temp, 0);
+            bullets = temp;
+            return count;
         }
 
         public void Bullet_Remove(BulletEntity bullet) {

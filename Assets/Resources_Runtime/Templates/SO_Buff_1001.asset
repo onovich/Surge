@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794d529e79272e04fa2f3d860df3929d, type: 3}
+  m_Name: SO_Buff_1001
+  m_EditorClassIdentifier: 
+  tm:
+    typeID: 1001
+    level: 0
+    name: 
+    desc: 
+    lifeSec: 0
+    allowAttachBuilding: 0
+    hasDot: 0
+    dotIntervalSec: 0
+    dotAtk: 0
+    hasIce: 0
+    iceSlowRate: 0
+    hasIceImpact: 0
+    iceImpactNeecCount: 0
+    iceImpactAtk: 0

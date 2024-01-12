@@ -6,13 +6,10 @@ namespace Surge {
     public struct BuffTM {
 
         public int typeID;
-        public int level;
         public string name;
         public string desc;
 
         public float lifeSec;
-
-        public bool allowAttachBuilding;
 
         public bool hasDot;
         public float dotIntervalSec;

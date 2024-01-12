@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7166f83935aff304ba389189a588652e, type: 3}
+  m_Name: SO_Bullet_1001
+  m_EditorClassIdentifier: 
+  tm:
+    typeID: 1001
+    typeName: 
+    desc: 
+    flyType: 1
+    searchRangeIfTrack: 0
+    flySpeed: 0
+    radius: 0
+    atk: 0
+    crossTimes: 0
+    lifeSec: 0
+    spr: {fileID: 21300000, guid: 81981d37d9cde3b4caeb9e074f515908, type: 3}
+    hitEffector:
+      hitVFXPrefab: {fileID: 0}
+      hitVFXDuration: 0
+      hitSFX: {fileID: 0}
+      hasHitAttachBuff: 0
+      allowAttachBuilding: 0
+      hitAttachBuffTypeID: 0
+      hasImpact: 0
+      impactRange: 0
+      impactAtk: 0
+      impactRangeVFXPrefab: {fileID: 0}
+      impactRangeVFXDuration: 0
+      hasImpactAttachBuff: 0
+      impactAttachBuffTypeID: 0
