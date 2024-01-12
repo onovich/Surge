@@ -51,6 +51,17 @@ namespace Surge.Business.Game {
                 return;
             }
 
+            if (role.roleType == RoleType.Player) {
+                // Owner Move
+                role.Move_Move(fixdt);
+
+            } else if (role.roleType == RoleType.Monster) {
+                var monster = role;
+                if (monster.aiType == AIType.FlyStraightly) {
+                    monster.Move_Straightly(fixdt);
+                }
+            }
+
             // 前摇
             ref var stage = ref fsm.casting_stage;
             if (stage == SkillCastStage.PreCast) {

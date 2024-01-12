@@ -87,8 +87,6 @@ namespace Surge.Business.Game {
 
         public static void Skill_TryCastByPos(GameBusinessContext ctx, RoleEntity caster, SkillSubEntity skill, Vector2 inputTargetPos, Vector2Int inputPosInt) {
 
-            SLog.Log($"Skill_TryCastByPos: {caster.entityID} {skill.typeID}");
-
             bool hasTarget;
             EntityType targetType = EntityType.None;
             int targetID = 0;
@@ -121,7 +119,6 @@ namespace Surge.Business.Game {
 
         public static void Skill_Cast(GameBusinessContext ctx, RoleEntity role, SkillSubEntity skill) {
 
-            SLog.Log($"Skill_Cast: {role.entityID} {skill.typeID}");
             Vector2 targetPos;
             Vector2 flyDir;
             if (role.hasTarget) {

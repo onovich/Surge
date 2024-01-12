@@ -17,8 +17,6 @@ namespace Surge.Business.Game {
 
         public static void SkillShortcut_ChooseSkill(GameBusinessContext ctx, PlayerEntity player, int skillTypeID) {
 
-            SLog.Log($"SkillShortcut_ChooseSkill: {skillTypeID}");
-
             var owner = ctx.Role_GetOwner();
             var skill = owner.Skill_Find(skillTypeID);
             if (skill == null) {

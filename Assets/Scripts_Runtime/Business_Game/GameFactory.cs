@@ -169,7 +169,6 @@ namespace Surge.Business.Game {
             bullet.Pos_UpdatePos();
             bullet.SR_SetSprite(tm.spr);
 
-            SLog.Log($"Bullet_Spawn: entityID = {bullet.entityID}; typeID = {bullet.typeID}; flyType = {bullet.flyType}; pos = {bullet.pos}; dir = {bullet.dir}");
 
             return bullet;
         }
