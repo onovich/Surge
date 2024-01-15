@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: TM_Config
+  m_Name: TM_Wave
   m_EditorClassIdentifier: 
-  m_GroupName: TM_Config
+  m_GroupName: TM_Wave
   m_Data:
     m_SerializedData: []
-  m_GUID: 94afc55ec0377af478cdbeb024d7863a
+  m_GUID: def6e7a6161c27840b3b649563c4e0c7
   m_SerializeEntries:
-  - m_GUID: c644bd2841d8099428b219f3b21a2c9a
-    m_Address: TM_Game_Config
+  - m_GUID: e053cb02d67086245a3ff8d7de862fce
+    m_Address: SO_Wave_1001
     m_ReadOnly: 0
     m_SerializedLabels:
-    - TM_Config
+    - TM_Wave
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a7ac547b32bc60f48a3d581185dc71b9, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 2c5ff616e5ffbcb4eb2f16644c3f3441, type: 2}
-    - {fileID: 11400000, guid: f7af7e707957b5b498a1ec96083faa97, type: 2}
+    - {fileID: 11400000, guid: 33a6f075b300704488fca07d0fa8c3df, type: 2}
+    - {fileID: 11400000, guid: 80e62338c6c5fac439e2296f91293383, type: 2}

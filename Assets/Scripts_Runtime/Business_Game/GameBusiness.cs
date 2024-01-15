@@ -62,25 +62,28 @@ namespace Surge.Business.Game {
 
         public static void StartGame(GameBusinessContext ctx, int gameTypeID) {
 
-            var gameEntity = ctx.gameEntity;
-            gameEntity.random = new RandomService(101052099, 0);
-            gameEntity.Stage_EnterInBattle();
+            // Game
+            var game = GameStageDomain.Game_Spawn(ctx, gameTypeID);
 
-            // - Role
+            // Role
             var owner = GameRoleDomain.Spawn(ctx,
                 1001,
                 RoleType.Player,
                 AllyStatus.Justice,
                 AIType.None,
-                new Vector2(0, -5));
-            var player = GamePlayerDomain.Spawn(ctx, gameTypeID);
+                new Vector2(0, -5),
+                0);
+            var player = ctx.playerEntity;
             player.ownerRoleEntityID = owner.entityID;
 
             // - Role: Enemy's
             // TODO
-            // foreach (var roleSpawnTM in gameTM.roleSpawnArr) {
+            // foreach (var roleSpawnTM in GameConfig.roleSpawnArr) {
             //     _ = GameRoleDomain.Spawn(ctx, roleSpawnTM.typeID, roleSpawnTM.level, RoleType.Monster, roleSpawnTM.allyStatus, roleSpawnTM.aiType, roleSpawnTM.pos, true, 0);
             // }
+            var waveIndex = game.waveIndex;
+            var chapterTypeID = game.chapterTypeID;
+            GameRoleDomain.Roles_SpawnByWave(ctx, ctx.idRecordService, ctx.poolService, chapterTypeID, waveIndex);
 
             StartFinished(ctx, player, owner);
 
@@ -105,6 +108,9 @@ namespace Surge.Business.Game {
             }
 
             var gameEntity = ctx.gameEntity;
+            if (gameEntity == null) {
+                return;
+            }
             dt *= gameEntity.gameTimeSpeedRate;
 
             ProcessInput(ctx, dt);
@@ -127,7 +133,23 @@ namespace Surge.Business.Game {
         }
 
         static void LogicTick(GameBusinessContext ctx, float dt) {
-            // ==== Game ====
+
+            // - Battle Stage
+            var stage = ctx.gameEntity.battleStage;
+            if (stage == BattleStage.InBattle) {
+                LogicTick_InBattle(ctx, dt);
+            } else if (stage == BattleStage.FocusBoss) {
+
+            } else if (stage == BattleStage.End) {
+
+            } else if (stage == BattleStage.Pause) {
+
+            }
+
+        }
+
+        static void LogicTick_InBattle(GameBusinessContext ctx, float dt) {
+
             var game = ctx.gameEntity;
             var player = ctx.playerEntity;
 

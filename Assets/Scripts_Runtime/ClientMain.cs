@@ -73,7 +73,7 @@ namespace Surge {
                 LoginBusinessContext loginBusinessContext = ctx.BakeLoginBusiness();
                 GameBusinessContext gameBusinessContext = ctx.BakeGameBusiness();
                 LoginBusiness.Exit(loginBusinessContext);
-                GameBusiness.StartGame(gameBusinessContext, 1);
+                GameBusiness.StartGame(gameBusinessContext, 1001);
             };
 
             uiEventCenter.Login_OnExitGameClickHandle += () => {

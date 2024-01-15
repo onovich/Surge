@@ -5,13 +5,44 @@ using UnityEngine;
 namespace Surge.Business.Game {
     public static class GameRoleDomain {
 
+        // Wave
+        public static void Roles_SpawnByWave(GameBusinessContext ctx,
+                                             IDRecordService idRecordService,
+                                             PoolService poolService,
+                                             int chapterTypeID,
+                                             int waveIndex) {
+            var has = ctx.templateInfraContext.Wave_TryGet(chapterTypeID, waveIndex, out var waveTM);
+            if (!has) {
+                SLog.LogError($"GameFactory.Roles_SpawnByWave: ChapterTypeID={chapterTypeID} not found");
+                return;
+            }
+            var monsterTypeIDs = waveTM.monsterTypeIDs;
+            var monsterSpawnPositions = waveTM.monsterSpawnPositions;
+            var monsterSpawnDirections = waveTM.monsterSpawnDirections;
+            for (int i = 0; i < monsterTypeIDs.Length; i += 1) {
+                var typeID = monsterTypeIDs[i];
+                var pos = monsterSpawnPositions[i];
+                var dir = monsterSpawnDirections[i];
+                var rolePos = pos;
+                var roleDir = dir;
+                RoleEntity role = Spawn(ctx,
+                                              typeID,
+                                              RoleType.Monster,
+                                              AllyStatus.Evil,
+                                              AIType.FlyStraightly,
+                                              rolePos,
+                                              roleDir);
+            }
+        }
+
         // Role
         public static RoleEntity Spawn(GameBusinessContext ctx,
                                      int typeID,
                                      RoleType roleType,
                                      AllyStatus allyStatus,
                                      AIType aiType,
-                                     Vector2 pos) {
+                                     Vector2 pos,
+                                     float dir) {
             var role = GameFactory.Role_Spawn(ctx.templateInfraContext,
                                               ctx.idRecordService,
                                               ctx.poolService,
@@ -19,7 +50,8 @@ namespace Surge.Business.Game {
                                               roleType,
                                               allyStatus,
                                               aiType,
-                                              pos);
+                                              pos,
+                                              dir);
             Role_SpawnFinished(ctx, role);
             return role;
         }

@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: TM_Config
+  m_Name: TM_Chapter
   m_EditorClassIdentifier: 
-  m_GroupName: TM_Config
+  m_GroupName: TM_Chapter
   m_Data:
     m_SerializedData: []
-  m_GUID: 94afc55ec0377af478cdbeb024d7863a
+  m_GUID: 9a41dc974fa70164283c0db0f49ff24d
   m_SerializeEntries:
-  - m_GUID: c644bd2841d8099428b219f3b21a2c9a
-    m_Address: TM_Game_Config
+  - m_GUID: e5ae469d8cc8a0349ba24f685315e750
+    m_Address: SO_Chapter_1001
     m_ReadOnly: 0
     m_SerializedLabels:
-    - TM_Config
+    - TM_Chapter
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a7ac547b32bc60f48a3d581185dc71b9, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 2c5ff616e5ffbcb4eb2f16644c3f3441, type: 2}
-    - {fileID: 11400000, guid: f7af7e707957b5b498a1ec96083faa97, type: 2}
+    - {fileID: 11400000, guid: 274833ac43626cf498c725f186e4845f, type: 2}
+    - {fileID: 11400000, guid: 6dd70b52c2fd6ac408da5e80ccd8c52a, type: 2}

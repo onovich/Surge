@@ -30,6 +30,21 @@ namespace Surge {
                 ctx.Buff_Add(item.tm);
             }
 
+            var chapters = await Addressables.LoadAssetsAsync<ChapterSO>("TM_Chapter", null).Task;
+            foreach (var item in chapters) {
+                ctx.Chapter_Add(item.tm);
+            }
+
+            var waves = await Addressables.LoadAssetsAsync<WaveSO>("TM_Wave", null).Task;
+            foreach (var item in waves) {
+                ctx.Wave_Add(item.tm);
+            }
+
+            var configs = await Addressables.LoadAssetsAsync<GameSO>("TM_Config", null).Task;
+            foreach (var item in configs) {
+                ctx.GameConfig_Set(item.tm);
+            }
+
         }
 
     }

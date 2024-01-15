@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205399fe111f7844f99fcc39d57e8785, type: 3}
+  m_Name: SO_Wave_1001
+  m_EditorClassIdentifier: 
+  tm:
+    typeID: 1001
+    delayTimer: 0
+    monsterTypeIDs: e9030000e9030000
+    monsterSpawnDelayTimers:
+    - 2
+    - 2
+    monsterSpawnPositions:
+    - {x: -6.21, y: 4.96}
+    - {x: 1.31, y: 3.01}
+    monsterSpawnDirections:
+    - 180
+    - 180

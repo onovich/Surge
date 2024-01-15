@@ -7,10 +7,15 @@ namespace Surge {
         public int gameTypeID;
         public RandomService random;
 
+        // Timer
         public float intervalTime;
         public float gameTimeSpeedRate;
         public float[] gameTimeSpeedRates;
         public int gameTimeSpeedRateIndex;
+
+        // State
+        public int chapterTypeID;
+        public int waveIndex;
 
         // Stage
         public BattleStage battleStage;
@@ -24,6 +29,8 @@ namespace Surge {
             intervalTime = 0.01f;
             gameTimeSpeedRate = 1f;
             gameTimeSpeedRates = new float[] { 0.6f, 1f, 1.5f, 2f, 10f };
+            gameTimeSpeedRateIndex = 0;
+            waveIndex = 0;
 
         }
 

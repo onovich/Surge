@@ -30,7 +30,7 @@ namespace Surge.Business.Game {
         public Collider2D[] overlapTemp;
 
         public GameBusinessContext() {
-            gameEntity = new GameEntity();
+            playerEntity = new PlayerEntity();
             inputEntity = new InputEntity();
 
             roleRepository = new RoleRepository();
@@ -50,13 +50,13 @@ namespace Surge.Business.Game {
             damageArbitSet.Clear();
         }
 
-        // Player
-        public void Player_Set(PlayerEntity playerEntity) {
-            this.playerEntity = playerEntity;
+        // Game
+        public void Game_Set(GameEntity gameEntity) {
+            this.gameEntity = gameEntity;
         }
 
-        public void Player_TearDown() {
-            playerEntity = null;
+        public void Game_Clear() {
+            this.gameEntity = null;
         }
 
         // Role

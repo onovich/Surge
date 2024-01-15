@@ -57,7 +57,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3cf7a31d21a4f724aa58f56ac4260e72, type: 2}
   - {fileID: 11400000, guid: f08ca1eb52f56f34eb3672ea9d08ca26, type: 2}
   - {fileID: 11400000, guid: aaa1d3fd34e7a7d4c80345eae3344d79, type: 2}
+  - {fileID: 11400000, guid: c9ee9520dd6c52245b822e66fd1fe55b, type: 2}
   - {fileID: 11400000, guid: 89091b1c1631ef44f8c7a54b2e9c483d, type: 2}
+  - {fileID: 11400000, guid: 3aba516f5e390874a8d7cd36ffb78a72, type: 2}
   - {fileID: 11400000, guid: bf1f71b1ee6e55542844d6979161da9a, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
@@ -105,6 +107,8 @@ MonoBehaviour:
     - Entity
     - VFX
     - SFX
+    - TM_Game
+    - TM_Chapter
     - TM_Role
     - TM_Map
     - TM_Bullet
@@ -114,6 +118,7 @@ MonoBehaviour:
     - TM_Config
     - TM_SFXTable
     - TM_VFXTable
+    - TM_Wave
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 641bf2fdad93e4244b5b50ea15592b05, type: 2}

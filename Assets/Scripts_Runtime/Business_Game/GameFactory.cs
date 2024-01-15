@@ -6,12 +6,15 @@ namespace Surge.Business.Game {
 
     public class GameFactory {
 
-        // Player
-        public static PlayerEntity Player_Spawn(TemplateInfraContext templateInfraContext, int gameTypeID) {
-
-            PlayerEntity player = new PlayerEntity();
-            return player;
-
+        // Game
+        public static GameEntity Game_Spawn(TemplateInfraContext templateInfraContext, int typeID) {
+            var config = templateInfraContext.GameConfig_Get();
+            var gameEntity = new GameEntity();
+            gameEntity.gameTypeID = typeID;
+            gameEntity.chapterTypeID = config.startChapterTypeID;
+            gameEntity.random = new RandomService(101052099, 0);
+            gameEntity.Stage_EnterInBattle();
+            return gameEntity;
         }
 
         // Role
@@ -29,7 +32,8 @@ namespace Surge.Business.Game {
                                             RoleType roleType,
                                             AllyStatus allyStatus,
                                             AIType aiType,
-                                            Vector2 pos) {
+                                            Vector2 pos,
+                                            float dir) {
 
             bool has = templateInfraContext.Role_TryGet(typeID, out var roleTM);
             if (!has) {
