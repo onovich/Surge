@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.codewriter.triinspector": "ssh://git@github.com/codewriter-packages/Tri-Inspector.git",
     "com.unity.addressables": "1.21.19",
     "com.unity.collab-proxy": "2.0.5",
     "com.unity.feature.2d": "2.0.0",
