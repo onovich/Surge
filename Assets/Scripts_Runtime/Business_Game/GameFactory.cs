@@ -52,6 +52,7 @@ namespace Surge.Business.Game {
             role.allyStatus = allyStatus;
 
             role.Pos_SetPos(pos);
+            role.Pos_SetFaceDir(dir);
 
             // Input
             role.Input_SetMoveAxis(Vector2.zero);

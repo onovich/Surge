@@ -100,10 +100,12 @@ namespace Surge {
             return moveCom.lastPosInt;
         }
 
+        public void Pos_SetFaceDir(float rotationZ) {
+            faceDir = Quaternion.Euler(0, 0, rotationZ) * Vector2.up;
+            transform.rotation = Quaternion.Euler(0, 0, rotationZ);
+        }
+
         public Vector2 Pos_GetFaceDir() {
-            if (faceDir == Vector2.zero) {
-                faceDir = Vector2.up;
-            }
             return faceDir;
         }
 
