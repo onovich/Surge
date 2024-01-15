@@ -40,8 +40,6 @@ namespace Surge {
                 skillKeyDown = InputKeyEnum.Skill3;
             } else if (keybindingCom.IsKeyDown(InputKeyEnum.Skill4)) {
                 skillKeyDown = InputKeyEnum.Skill4;
-            } else if (keybindingCom.IsKeyDown(InputKeyEnum.Attack)) {
-                skillKeyDown = InputKeyEnum.Attack;
             } else {
                 skillKeyDown = InputKeyEnum.None;
             }

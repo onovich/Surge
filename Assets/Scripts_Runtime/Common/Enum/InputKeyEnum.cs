@@ -14,9 +14,6 @@ namespace Surge {
         TurnUp = 203,
         TurnDown = 204,
 
-        Jump = 301,
-
-        Attack = 401,
         Skill1 = 402,
         Skill2 = 403,
         Skill3 = 404,

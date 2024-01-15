@@ -26,11 +26,9 @@ namespace Surge.Business.Game {
             inputEntity.Keybinding_Set(InputKeyEnum.MoveRight, new KeyCode[] { KeyCode.D });
             inputEntity.Keybinding_Set(InputKeyEnum.MoveForward, new KeyCode[] { KeyCode.W });
             inputEntity.Keybinding_Set(InputKeyEnum.MoveBackward, new KeyCode[] { KeyCode.S });
-            inputEntity.Keybinding_Set(InputKeyEnum.Jump, new KeyCode[] { KeyCode.Space });
             inputEntity.Keybinding_Set(InputKeyEnum.Interact, new KeyCode[] { KeyCode.E });
             inputEntity.Keybinding_Set(InputKeyEnum.Cancel, new KeyCode[] { KeyCode.Escape, KeyCode.Mouse1 });
-            inputEntity.Keybinding_Set(InputKeyEnum.Attack, new KeyCode[] { KeyCode.Mouse0 });
-            inputEntity.Keybinding_Set(InputKeyEnum.Skill1, new KeyCode[] { KeyCode.Alpha1 });
+            inputEntity.Keybinding_Set(InputKeyEnum.Skill1, new KeyCode[] { KeyCode.Alpha1, KeyCode.Mouse0, KeyCode.Space });
             inputEntity.Keybinding_Set(InputKeyEnum.Skill2, new KeyCode[] { KeyCode.Alpha2 });
             inputEntity.Keybinding_Set(InputKeyEnum.Skill3, new KeyCode[] { KeyCode.Alpha3 });
             inputEntity.Keybinding_Set(InputKeyEnum.Skill4, new KeyCode[] { KeyCode.Alpha4 });
