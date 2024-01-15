@@ -16,11 +16,12 @@ MonoBehaviour:
     typeID: 1001
     typeName: 
     desc: 
-    cdMax: 0
+    cdMax: 0.2
     isAutoCast: 0
+    castByHold: 1
     preCastSec: 0
-    castingMaintainSec: 1
-    castingIntervalSec: 0.2
+    castingMaintainSec: 0
+    castingIntervalSec: 0
     endCastSec: 0
     hasCastBullet: 1
     castBulletTypeID: 1001

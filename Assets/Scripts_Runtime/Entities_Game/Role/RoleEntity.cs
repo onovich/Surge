@@ -117,6 +117,10 @@ namespace Surge {
             inputCom.skillKeyDown = skillKeyDown;
         }
 
+        public void Input_SetSkillKeyHold(InputKeyEnum skillKeyHold) {
+            inputCom.skillKeyHold = skillKeyHold;
+        }
+
         // Attr
         public void Attr_InitAll(float moveSpeed,
                                 int hpMax,

@@ -21,6 +21,7 @@ namespace Surge.Business.Game {
             InputEntity inputEntity = ctx.inputEntity;
             owner.Input_SetMoveAxis(inputEntity.moveAxis);
             owner.Input_SetSkillKeyDown(inputEntity.skillKeyDown);
+            owner.Input_SetSkillKeyHold(inputEntity.skillKeyHold);
         }
 
     }

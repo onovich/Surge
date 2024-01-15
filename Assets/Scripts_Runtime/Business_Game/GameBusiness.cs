@@ -228,7 +228,10 @@ namespace Surge.Business.Game {
             // TODO
 
             if (ctx.inputEntity.skillKeyDown != InputKeyEnum.None) {
-                GameUIDomain.SkillShortcut_ChooseSkillByKey(ctx, player, ctx.inputEntity.skillKeyDown);
+                GameUIDomain.SkillShortcut_ChooseSkillByKeyDown(ctx, player, ctx.inputEntity.skillKeyDown);
+            }
+            if (ctx.inputEntity.skillKeyHold != InputKeyEnum.None) {
+                GameUIDomain.SkillShortcut_ChooseSkillByKeyHold(ctx, player, ctx.inputEntity.skillKeyHold);
             }
 
             // Role: All

@@ -8,6 +8,7 @@ namespace Surge {
 
         public Vector2 moveAxis;
         public InputKeyEnum skillKeyDown;
+        public InputKeyEnum skillKeyHold;
 
         InputKeybindingComponent keybindingCom;
 
@@ -44,6 +45,20 @@ namespace Surge {
                 skillKeyDown = InputKeyEnum.None;
             }
             this.skillKeyDown = skillKeyDown;
+
+            InputKeyEnum skillKeyHold;
+            if (keybindingCom.IsKeyPressing(InputKeyEnum.Skill1)) {
+                skillKeyHold = InputKeyEnum.Skill1;
+            } else if (keybindingCom.IsKeyPressing(InputKeyEnum.Skill2)) {
+                skillKeyHold = InputKeyEnum.Skill2;
+            } else if (keybindingCom.IsKeyPressing(InputKeyEnum.Skill3)) {
+                skillKeyHold = InputKeyEnum.Skill3;
+            } else if (keybindingCom.IsKeyPressing(InputKeyEnum.Skill4)) {
+                skillKeyHold = InputKeyEnum.Skill4;
+            } else {
+                skillKeyHold = InputKeyEnum.None;
+            }
+            this.skillKeyHold = skillKeyHold;
 
             // Camera Move
 

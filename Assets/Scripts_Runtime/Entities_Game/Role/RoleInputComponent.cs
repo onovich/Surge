@@ -6,6 +6,7 @@ namespace Surge {
 
         public Vector2 moveAxis;
         public InputKeyEnum skillKeyDown;
+        public InputKeyEnum skillKeyHold;
 
     }
 

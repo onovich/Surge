@@ -11,6 +11,7 @@ namespace Surge {
         public float cdMax;
 
         // Stage
+        public bool castByHold;
         public bool isAutoCast;
         public float preCastSecMax;
         public float castingMaintainSecMax;

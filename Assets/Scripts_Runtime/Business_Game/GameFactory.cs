@@ -97,6 +97,7 @@ namespace Surge.Business.Game {
             skill.cdMax = tm.cdMax;
 
             skill.isAutoCast = tm.isAutoCast;
+            skill.castByHold = tm.castByHold;
             skill.preCastSecMax = tm.preCastSec;
             skill.castingMaintainSecMax = tm.castingMaintainSec;
             skill.castingIntervalSecMax = tm.castingIntervalSec;
