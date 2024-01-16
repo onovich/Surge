@@ -187,7 +187,7 @@ namespace Surge.Business.Game {
 
             // - Bullet
             ctx.Bullet_ForEach(bullet => {
-                if (bullet.IsDead) {
+                if (bullet.IsDead()) {
                     return;
                 }
                 GameBulletFSMController.FixedTick(ctx, bullet, dt);
@@ -195,7 +195,7 @@ namespace Surge.Business.Game {
 
             // - Role
             ctx.Role_ForEach(role => {
-                if (role.isDead) {
+                if (role.IsDead()) {
                     return;
                 }
                 GameRoleFSMController.FixedTickFSM(ctx, role, dt);
@@ -260,9 +260,10 @@ namespace Surge.Business.Game {
             int roleLen = ctx.Role_TakeAll(out var roles);
             for (int i = 0; i < roleLen; i += 1) {
                 var role = roles[i];
-                if (role.isDead) {
+                if (role.IsDead()) {
                     if (role.roleType == RoleType.Monster) {
                         // TODO: Add Exp & Drop Dead Props
+                        GameRoleDomain.Monster_Dead(ctx, role);
                     } else {
                         // Reborn
                         GameRoleDomain.Role_FakeDead(ctx, role);
@@ -274,7 +275,7 @@ namespace Surge.Business.Game {
             int bulletLen = ctx.Bullet_TakeAll(out var bullets);
             for (int i = 0; i < bulletLen; i += 1) {
                 var bullet = bullets[i];
-                if (bullet.IsDead) {
+                if (bullet.IsDead()) {
                     GameBulletDomain.Unspawn(ctx, bullet);
                 }
             }

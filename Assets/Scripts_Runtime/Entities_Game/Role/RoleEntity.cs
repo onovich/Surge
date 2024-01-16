@@ -19,7 +19,11 @@ namespace Surge {
         Vector2 faceDir;
 
         // State
-        public bool isDead;
+        public bool IsDead() {
+            return attrCom.hp <= 0
+                && fsmCom.status != RoleFSMStatus.FakeDead
+                && fsmCom.status != RoleFSMStatus.Reborn;
+        }
 
         // Shoot
         [SerializeField] Transform[] muzzles;
@@ -58,6 +62,20 @@ namespace Surge {
             buffCom = new RoleBuffComponent();
             skillCom = new RoleSkillComponent();
             animCom = new RoleAnimComponent();
+        }
+
+        // Pool
+        public void Reuse() {
+            gameObject.SetActive(true);
+            skillCom.Reuse();
+            moveCom.Reuse();
+        }
+
+        public void Release() {
+            gameObject.SetActive(false);
+            buffCom.Clear();
+            skillCom.Clear();
+            deadDropCom.Clear();
         }
 
         // Move

@@ -126,13 +126,7 @@ namespace Surge.Business.Game {
 
             // Has Coll With Physics
             var overlaps = ctx.overlapTemp;
-            int targetLayerMask;
-            if (targetEntityType == EntityType.Role) {
-                targetLayerMask = 1 << LayerConst.ROLE;
-            } else {
-                // Debug.LogError($"BulletEntityType {targetEntityType} not support");
-                return;
-            }
+            int targetLayerMask = 1 << LayerConst.ROLE;
 
             int count = Physics2D.OverlapCircleNonAlloc(bullet.pos, bullet.radius, overlaps, targetLayerMask);
             for (int i = 0; i < count; i += 1) {
@@ -143,12 +137,10 @@ namespace Surge.Business.Game {
                 if (coll == null) {
                     continue;
                 }
-                if (targetEntityType == EntityType.Role) {
-                    var role = coll.transform.parent.GetComponent<RoleEntity>();
-                    if (role != null) {
-                        Bullet_HitRole(ctx, bullet, role);
-                        continue;
-                    }
+                var role = coll.transform.parent.GetComponent<RoleEntity>();
+                if (role != null) {
+                    Bullet_HitRole(ctx, bullet, role);
+                    continue;
                 }
             }
         }

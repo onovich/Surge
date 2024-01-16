@@ -11,7 +11,7 @@ namespace Surge.Business.Game {
             targetPos = Vector2.zero;
             float nearestDist = float.MaxValue;
             var role = ctx.Role_GetNeareast(allyStatus, curPos, range);
-            if (role != null && !role.isDead) {
+            if (role != null && !role.IsDead()) {
                 float dist = (role.Pos_GetPos() - curPos).sqrMagnitude;
                 if (dist <= nearestDist) {
                     nearestDist = dist;

@@ -65,9 +65,46 @@ namespace Surge.Business.Game {
                 ctx.poolService.Buff_Return(buff);
                 role.Buff_Remove(buff);
             }
-
             role.FSM_EnterFakeDead(1f);
 
+        }
+
+        public static void Monster_Dead(GameBusinessContext ctx, RoleEntity monster) {
+
+            // Drop
+            // TODO
+
+            // VFX
+            var vfxSO = ctx.templateInfraContext.VFX_GetTable();
+            if (vfxSO != null && vfxSO.roleExplodeVFXPrefab != null) {
+                GameObject vfx = GameObject.Instantiate(vfxSO.roleExplodeVFXPrefab);
+                vfx.transform.position = monster.Pos_GetPos();
+                GameObject.Destroy(vfx, vfxSO.roleExplodeVFXDuration);
+            }
+
+            Role_Unspawn(ctx, monster);
+
+        }
+
+        public static void Role_Unspawn(GameBusinessContext ctx, RoleEntity role) {
+
+            ctx.Role_Remove(role);
+
+            role.Skill_Foreach(skill => {
+                skill.Release();
+                ctx.poolService.SkillSub_Return(skill);
+            });
+
+            int buffLen = role.Buff_TakeAll(out var buffs);
+            for (int i = 0; i < buffLen; i += 1) {
+                var buff = buffs[i];
+                buff.Release();
+                ctx.poolService.Buff_Return(buff);
+            }
+
+            ctx.poolService.Role_Return(role);
+
+            role.Release();
         }
 
         static void Role_SpawnFinished(GameBusinessContext ctx, RoleEntity role) {
@@ -194,7 +231,7 @@ namespace Surge.Business.Game {
                     buff.dotIntervalTimer = buff.dotIntervalSec + buff.dotIntervalTimer;
                     Buff_DotDamage(ctx, role, buff);
                 }
-                if (buff.IsDead) {
+                if (buff.IsDead()) {
                     role.Buff_Remove(buff);
                 }
             }

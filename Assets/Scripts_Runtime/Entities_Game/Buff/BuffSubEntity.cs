@@ -19,7 +19,7 @@ namespace Surge {
         public int iceImpactNeecCount;
         public int iceImpactAtk;
 
-        public bool IsDead => lifeTimer <= 0;
+        public bool IsDead() => lifeTimer <= 0;
 
         public BuffSubEntity() { }
 

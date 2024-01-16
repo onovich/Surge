@@ -14,7 +14,7 @@ namespace Surge {
         public AllyStatus allyStatus;
         public BulletFlyType flyType;
 
-        public bool IsDead => crossTimes <= 0 || lifeSec <= 0;
+        public bool IsDead() => crossTimes <= 0 || lifeSec <= 0;
 
         public bool hasTarget;
         public EntityType casterEntityType;

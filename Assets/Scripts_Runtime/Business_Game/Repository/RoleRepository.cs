@@ -45,6 +45,9 @@ namespace Surge.Business.Game {
         }
 
         public void UpdatePosDict(RoleEntity role) {
+            if (role.IsDead()) {
+                return;
+            }
             var lastPos = role.Pos_GetLastPosInt();
             var newPos = role.Pos_GetPosInt();
             var oldKey = new I32I32_U64(lastPos.x, lastPos.y);
@@ -53,9 +56,6 @@ namespace Surge.Business.Game {
                 posIntDict[oldKey].Remove(role);
             } else {
                 SLog.LogError("Dont's has old key in PosDict, role entityID = " + role.entityID + "; oldKey = " + oldKey);
-            }
-            if (role.isDead) {
-                return;
             }
             if (posIntDict.ContainsKey(newKey)) {
                 posIntDict[newKey].Add(role);
@@ -105,7 +105,7 @@ namespace Surge.Business.Game {
             float nearestDist = float.MaxValue;
             float radiusSqr = radius * radius;
             foreach (var role in all.Values) {
-                if (role.isDead) {
+                if (role.IsDead()) {
                     continue;
                 }
                 if (role.allyStatus != allyStatus) {
@@ -129,7 +129,7 @@ namespace Surge.Business.Game {
                     continue;
                 }
                 list.ForEach((role) => {
-                    if (role.isDead) {
+                    if (role.IsDead()) {
                         return;
                     }
                     if (role.allyStatus != allyStatus) {
@@ -157,7 +157,7 @@ namespace Surge.Business.Game {
 
         public bool Role_TryGetAlive(int entityID, out RoleEntity role) {
             bool has = all.TryGetValue(entityID, out role);
-            return has && !role.isDead;
+            return has && !role.IsDead();
         }
 
         public void Role_Remove(RoleEntity role) {
