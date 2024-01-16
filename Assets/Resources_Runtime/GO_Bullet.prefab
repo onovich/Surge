@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129732432067797235}
   - component: {fileID: 8823208302164000822}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GO_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,6 @@ MonoBehaviour:
   typeName: 
   allyStatus: 0
   flyType: 0
-  isDead: 0
   hasTarget: 0
   casterEntityType: 0
   casterEntityID: 0
