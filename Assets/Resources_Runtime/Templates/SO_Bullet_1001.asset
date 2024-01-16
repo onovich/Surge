@@ -19,7 +19,7 @@ MonoBehaviour:
     flyType: 1
     searchRangeIfTrack: 1
     flySpeed: 4
-    radius: 1
+    radius: 0.2
     atk: 1
     crossTimes: 1
     lifeSec: 5
